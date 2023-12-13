@@ -8,19 +8,6 @@
     tools:context=".MainActivity">
 
 
-    <Button
-
-        android:id="@+id/btnReproducir"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="botonPlay"
-        android:text="@string/REPRODUCIR"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.061" />
-
     <com.google.android.exoplayer2.ui.StyledPlayerView
         android:id="@+id/playerView"
         android:layout_width="wrap_content"
@@ -29,6 +16,31 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></com.google.android.exoplayer2.ui.StyledPlayerView>
+
+    <LinearLayout
+        android:layout_width="275dp"
+        android:layout_height="71dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+
+            android:id="@+id/btnReproducir"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:onClick="botonPlay"
+            android:text="@string/REPRODUCIR" />
+
+        <Button
+            android:id="@+id/btpReprServLoc"
+            android:layout_width="134dp"
+            android:layout_height="match_parent"
+            android:onClick="botonPlay"
+            android:text="@string/reprodServLocal" />
+    </LinearLayout>
+
     <!--<VideoView
         android:id="@+id/videoView"
         android:layout_width="wrap_content"

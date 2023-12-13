@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">TAREA06</string>
     <string name="REPRODUCIR">REPRODUCIR</string>
+    <string name="reprodServLocal">Reproducir desde servidor local</string>
 </resources>
