@@ -1,0 +1,7 @@
+El archivo keystore.jks:
+    se genera:
+        -Build>Generate Signed Bundle / APK...>APK
+
+        lo mas importante es guardar el archivo y recordar la contraseña, es la firma de la apk
+        para su autenticidad, actualizaciones de la app sin que sea una nueva, y la generacion de apk realese
+        limpia la app para rendimiento y seguridad.
