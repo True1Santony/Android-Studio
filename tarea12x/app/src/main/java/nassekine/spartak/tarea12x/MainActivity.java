@@ -62,9 +62,10 @@ public class MainActivity extends AppCompatActivity {
                 for(int i=0;i<response.length();i++){
 
                     try {
-                        //se convierte a string in elemento response(JsonObject) para volver a construir un JsonObject a partir de un String(por contexto de volley)
-                        JSONObject jsonObject = new JSONObject(response.get(i).toString());
+                        //nodo principal
+                        JSONObject jsonObject=response.getJSONObject(i);
 
+                        //nodo hijo
                         JSONObject coordObject = jsonObject.getJSONObject("coord");
 
                         arrayCiudades.add(new Ciudad(
@@ -104,20 +105,27 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String ciudadBuscada = edBusquedaLocalidad.getText().toString();
+                if(!edBusquedaLocalidad.getText().toString().equals("") ) {
+                    String ciudadBuscada = edBusquedaLocalidad.getText().toString();
 
-                for (Ciudad ciudad : arrayCiudades) {
+                    for (Ciudad ciudad : arrayCiudades) {
 
-                    if(ciudad.getName().toLowerCase().contains(ciudadBuscada.toLowerCase())){
-                        tvLatitud.setText("Latitud: "+String.valueOf(ciudad.getLat()));
-                        tvLongitud.setText("Longitud: "+String.valueOf(ciudad.getLon()));
-                        tvCodigoPais.setText("Código de pais: "+ciudad.getCountry());
+                        if (ciudad.getName().toLowerCase().contains(ciudadBuscada.toLowerCase())) {//para facilitar las coincidencias
+                            tvLatitud.setText("Latitud: " + String.valueOf(ciudad.getLat()));
+                            tvLongitud.setText("Longitud: " + String.valueOf(ciudad.getLon()));
+                            tvCodigoPais.setText("Código de pais: " + ciudad.getCountry());
 
-                        ciudadAmostrar=new Ciudad(ciudad);
+                            ciudadAmostrar = new Ciudad(ciudad);
 
-                        Toast.makeText(MainActivity.this,"Mostrando datos de:\n"+ ciudad.getName(),Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Mostrando datos de:\n" + ciudad.getName(), Toast.LENGTH_SHORT).show();
+                        }
                     }
+                    if(ciudadAmostrar==null){
+                        Toast.makeText(MainActivity.this, "No ha habido coincidencias con: " + edBusquedaLocalidad.getText().toString()+"\n Pruebe con India", Toast.LENGTH_SHORT).show();
 
+                    }
+                }else{
+                    Toast.makeText(MainActivity.this, "INTRODUZCA UNA CIUDAD:\nEj: Torrejon", Toast.LENGTH_SHORT).show();
 
                 }
 
@@ -137,9 +145,14 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 } else {
                     // caso en el que el array de ciudades está vacío o no se ha escogido una ciudad
-                    Toast.makeText(MainActivity.this, "INTRODUZCA UNA CIUDAD:\nEj: Torrejon", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "INTRODUZCA UNA CIUDAD VÁLIDA:\nEj: Torrejon", Toast.LENGTH_SHORT).show();
                 }
 
+                ciudadAmostrar=null;
+                edBusquedaLocalidad.setText("");
+                tvLatitud.setText("");
+                tvLongitud.setText("");
+                tvCodigoPais.setText("");
             }
         });
 
@@ -152,6 +165,6 @@ public class MainActivity extends AppCompatActivity {
         tvPruebas.setText(sb.toString());
     }*/
 
-    //pendiente implemetar limiar datos tras dar a mostrar mapa los textview y el Object Ciudad.
+
     //ampliar a un Listwiew, como en el ejemplo de la unidad(como una opcion).
 }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.gatos_retrofit_java.fragmentos.DetalleFragment">
+
+        <ImageView
+            android:id="@+id/imgvLogo"
+            android:layout_gravity="center"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/ic_launcher_background"/>
+
+        <TextView
+            android:id="@+id/tvMarca"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Marca"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/tvDescripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:text="tvDescripcion"/>
+
+
+    <ImageView
+        android:id="@+id/imgvFoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
